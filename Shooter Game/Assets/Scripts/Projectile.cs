@@ -2,16 +2,47 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float speed = 20f;   // You can adjust this in Inspector
-    [SerializeField] float lifeTime = 5f; // Auto destroy after 5s
+    [SerializeField] float speed = 20f;
+    [SerializeField] GameObject projectileHitVFX;
+    [SerializeField] float lifeTime = 5f;
+
+    Rigidbody rb;
+
+    int damage;
+
+        void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void Start()
     {
-        Destroy(gameObject, lifeTime); // Clean up after a few seconds
+        rb.linearVelocity = transform.forward * speed;
+       
+    }
+
+    public void Init(int damage)
+    {
+        this.damage = damage;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        playerHealth?.TakeDamage(damage);
+
+        Instantiate(projectileHitVFX, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+
+
     }
 
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+
+
+
+
 }
