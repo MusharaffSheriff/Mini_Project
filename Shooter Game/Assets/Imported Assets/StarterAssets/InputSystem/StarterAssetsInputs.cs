@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -22,10 +23,9 @@ namespace StarterAssets
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
-        // ✅ Add this method
         void Start()
         {
-            shoot = false; // prevents gun from firing automatically when the scene starts
+            SetCursorState(cursorLocked);
         }
 
 #if ENABLE_INPUT_SYSTEM
@@ -56,6 +56,7 @@ namespace StarterAssets
         {
             ShootInput(value.isPressed);
         }
+
         public void OnZoom(InputValue value)
         {
             ZoomInput(value.isPressed);
@@ -86,6 +87,7 @@ namespace StarterAssets
         {
             shoot = newShootState;
         }
+
         public void ZoomInput(bool newZoomState)
         {
             zoom = newZoomState;
@@ -96,9 +98,11 @@ namespace StarterAssets
             SetCursorState(cursorLocked);
         }
 
-        private void SetCursorState(bool newState)
+        // ✅ Corrected version: single, public method
+        public void SetCursorState(bool newState)
         {
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !newState; // Makes cursor visible when unlocked
         }
     }
 }
