@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotExplosionVFX: {fileID: 5057686783105069534, guid: 01098b524f1a347bda5e2328338ac88c, type: 3}
-  startingHealth: 20
+  startingHealth: 10
 --- !u!65 &4078649502941720136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPrefab: {fileID: 699143612670213988, guid: 1d395380f628045caa2ff5615cdadc75, type: 3}
-  spawnTime: 10
+  spawnTime: 15
   spawnPoint: {fileID: 8870119505043647795}
 --- !u!1001 &2888420013174238863
 PrefabInstance:

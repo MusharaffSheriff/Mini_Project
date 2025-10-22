@@ -308,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7054039224200262841}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 6.449766, y: -0.40299988, z: 26.877771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   playerTargetPoint: {fileID: 0}
   projectileSpawnPoint: {fileID: 4424562930933518557}
   fireRate: 2
-  damage: 2
+  damage: 1
 --- !u!1 &8212870627226329456
 GameObject:
   m_ObjectHideFlags: 0
